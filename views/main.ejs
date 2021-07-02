@@ -12,24 +12,25 @@
 </head>
 
 <body>
-  <article class="widget">
+  <div class="widget">
+    <h2 class="heading">A Simple Weather App</h2>
     <div class="weatherIcon">
       <form action="/" method="post">
         <input type="text" name="search" placeholder="Type City Name" class="citySearch form-control form-control-sm">
         <button type="submit" class="btn btn-outline-info btn-sm search" name="button">Search</button>
       </form>
-      <img src= <%=linkIco%> alt="" class="dyncImg">
+      <img src=<%=linkIco%> alt="" class="dyncImg">
     </div>
 
     <div class="weatherInfo">
       <div class="temperature"><span><%=temp%></span></div>
       <div class="description">
         <div class="weatherCondition"><%=desc%></div>
-        <div class="place"><%=city%>, <%=country%></div>
+        <div class="place"><%=city%> <%=country%></div>
       </div>
     </div>
     <div class="date"><%=date%></div>
-    </article>
+  </div>
 
 </body>
 

@@ -30,22 +30,34 @@ app.get("/", (req, res) => {
 
   https.get(url, (response) => {
     response.on('data', (d) => {
-
       const weatherData = JSON.parse(d);
-      const temp = weatherData.main.temp;
-      const description = weatherData.weather[0].description;
-      const icon = weatherData.weather[0].icon;
-      const country = weatherData.sys.country;
-      const wurl = "http://openweathermap.org/img/wn/" + icon + "@4x.png";
+      if(weatherData.cod === 200)
+      {
+        const temp = weatherData.main.temp;
+        const description = weatherData.weather[0].description;
+        const icon = weatherData.weather[0].icon;
+        const country = weatherData.sys.country;
+        const wurl = "http://openweathermap.org/img/wn/" + icon + "@4x.png";
 
-      res.render('main', {
-        linkIco : wurl,
-        temp: temp,
-        desc: description,
-        city: city,
-        date: today,
-        country:country
-      })
+        res.render('main', {
+          linkIco : wurl,
+          temp: temp,
+          desc: description,
+          city: city,
+          date: today,
+          country:country
+        })
+      }
+      else{
+        res.render('main', {
+          linkIco : "-",
+          temp: "-",
+          desc: "-",
+          city:"Not Found",
+          date: "-",
+          country: " "
+        })
+      }
     });
   });
 })

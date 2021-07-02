@@ -20,6 +20,12 @@ body {
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
 }
 
+.heading{
+  position: relative;
+  margin: 9px auto;
+  color: #fff;
+}
+
 .weatherInfo {
   flex: 0 0 70%;
   height: 40%;
